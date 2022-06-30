@@ -15,7 +15,7 @@ module.exports = createCoreController("api::account.account", ({ strapi }) => ({
         title,
         currencyCode,
         user,
-        amount: 0,
+        amount: "0",
         no: String(Math.floor(Date.now() * Math.random())),
       };
 
