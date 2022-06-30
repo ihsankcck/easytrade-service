@@ -31,7 +31,7 @@ module.exports = createCoreController(
             where: { id: toAccountId },
           });
 
-        if (fromAccount?.amount < transactionAmount) {
+        if (Number(fromAccount?.amount) < transactionAmount) {
           throw new Error("Bakiye yetersiz");
         }
 
@@ -42,14 +42,14 @@ module.exports = createCoreController(
         await strapi.db.query("api::account.account").update({
           where: { id: fromAccountId },
           data: {
-            amount: fromAccount.amount - transactionAmount,
+            amount: String(Number(fromAccount.amount) - transactionAmount),
           },
         });
 
         await strapi.db.query("api::account.account").update({
           where: { id: toAccountId },
           data: {
-            amount: toAccount.amount + transactionAmount,
+            amount: String(Number(toAccount.amount) + transactionAmount),
           },
         });
 
