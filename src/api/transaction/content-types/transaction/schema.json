@@ -20,15 +20,15 @@
     "currencyCode": {
       "type": "string"
     },
-    "fromUser": {
+    "fromAccount": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "api::account.account"
     },
-    "toUser": {
+    "toAccount": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "api::account.account"
     }
   }
 }

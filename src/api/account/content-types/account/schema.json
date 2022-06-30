@@ -4,7 +4,8 @@
   "info": {
     "singularName": "account",
     "pluralName": "accounts",
-    "displayName": "account"
+    "displayName": "account",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,19 +17,19 @@
       "required": true
     },
     "no": {
-      "type": "string"
-    },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "account"
+      "type": "string",
+      "unique": true
     },
     "amount": {
       "type": "decimal"
     },
     "currencyCode": {
       "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
